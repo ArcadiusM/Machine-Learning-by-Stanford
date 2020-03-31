@@ -21,15 +21,19 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
 
+% First step for feedforward algorithm
+t1 = sigmoid(X * Theta1');
 
+% Add ones to the t1 matrix
+t1 = [ones(m, 1) t1];
 
+% Second step for feedforward algorithm
+t2 = sigmoid( t1 * Theta2');
 
-
-
-
-
-% =========================================================================
+[values, p] = max(t2, [], 2);
 
 
 end
